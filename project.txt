@@ -1,0 +1,33 @@
+Random Name Generator API
+
+- User Authentication
+  - Create new account
+  - User login 
+
+- Random Name Generators
+  - US Boy Names
+    - Pulls random boy name from Boy list
+    - Pulls random surname from Surname list
+    - Save name to Favorites List
+    - Must specify number of names to generate
+  - US Girl Names
+    - Pulls random girl name from Girl list
+    - Pulls random surname from Surname list
+    - Save name to Favorites List
+    - Must specify number of names to generate
+  - Random Syllable Names
+    - Pulls random syllables to form random fictional name
+    - Must specify max number of syllables
+    - Save name to Favorites List
+    - Must specify number of names to generate
+
+- Favorites Lists
+  - US Boy Names
+    - View list
+    - ?Remove from list?
+  - US Girl Names
+    - View list
+    - ?Remove from list?
+  - Random Syllable Names
+    - View list
+    - ?Remove from list?
