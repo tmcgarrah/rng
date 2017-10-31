@@ -1,11 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 const User = require('./user.model');
 const mongodb = require('./mongodb.utils');
 const rngServices = require('./rng.services.js');
 
 const app = express();
 const PORT = 3001;
+
+const girls = fs.readFileSync('./names/girl.txt', 'utf-8').toString().toUpperCase().split('\n');
+const boys = fs.readFileSync('./names/boy.txt', 'utf-8').toString().toUpperCase().split('\n');
+const surnames = fs.readFileSync('./names/surname.txt', 'utf-8').toString().toUpperCase().split('\n');
+const syllables = fs.readFileSync('./names/syllables.txt', 'utf-8').toString().toUpperCase().split('\n');
+const words = fs.readFileSync('./names/words.txt', 'utf-8').toString().toUpperCase().split('\n');
 
 mongodb.createEventListeners();
 mongodb.connect();
@@ -17,7 +24,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/usboy', (req, res) => {
-  res.status(200).send('Random US Boy Name');
+  let temp = rngServices.random(boys);
+  res.status(200).send(temp);
 });
 
 app.get('/usgirl', (req, res) => {
