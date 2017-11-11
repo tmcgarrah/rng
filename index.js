@@ -14,6 +14,8 @@ const surnames = fs.readFileSync('./names/surname.txt', 'utf-8').toString().toUp
 const syllables = fs.readFileSync('./names/syllables.txt', 'utf-8').toString().toUpperCase().split('\n');
 const words = fs.readFileSync('./names/words.txt', 'utf-8').toString().toUpperCase().split('\n');
 
+let list = [];
+
 mongodb.createEventListeners();
 mongodb.connect();
 
@@ -23,18 +25,55 @@ app.get('/', (req, res) => {
   res.status(200).send('Welcome to RNG');
 });
 
-app.get('/usboy', (req, res) => {
-  let temp = rngServices.random(boys);
-  res.status(200).send(temp);
+app.get('/boy/:num', (req, res) => {
+  list = [];
+  const qty = req.params.num.toString();
+  for (let i = 0; i < qty; i++) {
+    list[i] = rngServices.random(boys).concat(' ').concat(rngServices.random(surnames));
+  }
+  console.log(list);
+  res.status(200).send(list);
 });
 
-app.get('/usgirl', (req, res) => {
-  res.status(200).send('Random US Girl Name');
+app.get('/girl/:num', (req, res) => {
+  list = [];
+  const qty = req.params.num.toString();
+  for (let i = 0; i < qty; i++) {
+    list[i] = rngServices.random(girls).concat(' ').concat(rngServices.random(surnames));
+  }
+  console.log(list);
+  res.status(200).send(list);
 });
 
-app.get('/rsname', (req, res) => {
-  res.status(200).send('Random Syllable Name');
+app.get('/rsname/:num/:syl', (req, res) => {
+  list = [];
+  const qty = req.params.num.toString();
+  const sylnum = req.params.syl.toString();
+  for (let i = 0; i < qty; i++) {
+    let temp = rngServices.random(syllables);
+    for (let j = 1; j < sylnum; j++) {
+      temp = temp.concat('-').concat(rngServices.random(syllables));
+    }
+    list[i] = temp;
+  }
+  console.log(list);
+  res.status(200).send(list);
 });
+
+app.get('/rwords/:num/:syl', (req, res) => {
+  list = [];
+  const qty = req.params.num.toString();
+  const sylnum = req.params.syl.toString();
+  for (let i = 0; i < qty; i++) {
+    let temp = rngServices.random(words);
+    for (let j = 1; j < sylnum; j++) {
+      temp = temp.concat('-').concat(rngServices.random(words));
+    }
+    list[i] = temp;
+  }
+  console.log(list);
+  res.status(200).send(list);
+})
 
 app.post('/create', (req, res) => {
   let newUser = new User({
