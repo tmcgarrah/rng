@@ -184,8 +184,6 @@ will
 wilt
 win
 wind
-(the
-noun)
 wing
 wink
 wish
@@ -1175,8 +1173,6 @@ slight
 tight
 wild
 wind
-(the
-verb)
 cried
 die
 flies
@@ -1410,7 +1406,7 @@ bath
 blast
 branch
 brass
-can't
+cant
 cast
 chance
 clasp
