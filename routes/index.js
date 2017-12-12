@@ -1,5 +1,6 @@
 const isLoggedIn = require('../middleware/is-logged-in.mw');
 const rngServices = require('../rng.services');
+const User = require('../models/user.model');
 const fs = require('fs');
 
 const girls = fs.readFileSync('./names/girl.txt', 'utf-8').toString().toUpperCase().split('\n');
@@ -32,17 +33,22 @@ module.exports = function (passport) {
     res.redirect('/');
   });
 
-  router.get('/boy/:num', (req, res) => {
-    list = [];
-    const qty = req.params.num.toString();
-    for (let i = 0; i < qty; i++) {
-      list[i] = rngServices.random(boys).concat(' ').concat(rngServices.random(surnames));
+  router.get('/boy/:num', isLoggedIn, (req, res) => {
+    if(isLoggedIn) {
+      list = [];
+      const qty = req.params.num.toString();
+      for (let i = 0; i < qty; i++) {
+        list[i] = rngServices.random(boys).concat(' ').concat(rngServices.random(surnames));
+      }
+      console.log(list);
+      res.status(200).send(list);
+    } else {
+      res.status(404).send('Login required');
+      console.log('Login required');
     }
-    console.log(list);
-    res.status(200).send(list);
   });
 
-  router.get('/girl/:num', (req, res) => {
+  router.get('/girl/:num', isLoggedIn, (req, res) => {
     list = [];
     const qty = req.params.num.toString();
     for (let i = 0; i < qty; i++) {
@@ -52,7 +58,7 @@ module.exports = function (passport) {
     res.status(200).send(list);
   });
 
-  router.get('/rsname/:num/:syl', (req, res) => {
+  router.get('/rsname/:num/:syl', isLoggedIn, (req, res) => {
     list = [];
     const qty = req.params.num.toString();
     const sylnum = req.params.syl.toString();
@@ -67,7 +73,7 @@ module.exports = function (passport) {
     res.status(200).send(list);
   });
 
-  router.get('/rwords/:num/:syl', (req, res) => {
+  router.get('/rwords/:num/:syl', isLoggedIn, (req, res) => {
     list = [];
     const qty = req.params.num.toString();
     const sylnum = req.params.syl.toString();
@@ -82,16 +88,40 @@ module.exports = function (passport) {
     res.status(200).send(list);
   });
 
-  // router.get('/favorites', (req, res) => {
-  //   let temp = req.query.username;
-  //   rngServices.findUser(temp)
-  //     .then((foundUser) => {
-  //       res.status(200).send(foundUser[0].favorite);
-  //     })
-  //     .catch((err) => {
-  //       res.status(500).send(err)
-  //     })
-  // });
+  router.post('/save', isLoggedIn, (req, res) => {
+    const nameData = req.body;
+
+    User.findOne( {_id: req.user._id}).exec()
+      .then((userFound) => {
+        let user = new User(rngServices.saveName(userFound, nameData));
+        user.update( { _id: req.user._id}, {$set: {favorite: user.favorite}}).exec()
+        user.save().then(() => {
+        res.status(200).send(user);
+        })
+      })
+  });
+
+  router.post('/delete', isLoggedIn, (req, res) => {
+    const deleteName = req.body;
+
+    User.findOne( {_id: req.user._id}).exec()
+      .then((userFound) => {
+        let user = new User(rngServices.deleteName(userFound, deleteName));
+        console.log(user);
+        user.markModified('favorite');
+        user.update( { _id: req.user._id}, { $set: { favorite: user.favorite }}).exec()
+          user.save().then((result) => {
+            console.log('result of save')
+            console.log(result);
+            res.status(200).send(user);
+        })
+      })
+  });
+
+  router.get('/favorites', isLoggedIn, (req, res) => {
+    console.log(req.user);
+    res.status(200).send(req.user);
+  });
 
   return router;
 };

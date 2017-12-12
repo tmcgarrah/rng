@@ -1,5 +1,6 @@
 const mongodb = require('mongodb');
 const express = require('express');
+const _ = require('lodash');
 const randomItem = require('random-item');
 const User = require('./models/user.model');
 const DbUser = require('./models/dbuser.model');
@@ -8,7 +9,8 @@ module.exports = {
   verifyUser,
   random,
   findUser,
-  saveName
+  saveName,
+  deleteName
 };
 
 function verifyUser(uname, pword) {
@@ -30,11 +32,23 @@ function findUser(uname) {
   return User.find({username: uname}).exec();
 }
 
-function saveName(uname, name) {
-  return findUser(uname).then((user) => {
-    user[0].boynames.push(name);
-    console.log(user);
+function saveName(user, nameData) {
+  const newType = nameData.type;
+  const newName = nameData.name;
 
-    return user.save();
-  });
+  console.log(user);
+
+  user.favorite[newType].push(newName);
+
+  console.log(user);
+
+  return user;
+};
+
+function deleteName(user, thisName) {
+
+  const name = thisName.name;
+  _.remove(user.favorite[thisName.type], (n) => { return n === name});
+  return user;
+
 };
