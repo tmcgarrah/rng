@@ -14,3 +14,7 @@ const userSchema = new Schema({
     wordnames: [String]
   }
 });
+
+let User = mongoose.model('User', userSchema);
+
+module.exports = User;

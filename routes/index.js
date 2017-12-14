@@ -10,7 +10,7 @@ const syllables = fs.readFileSync('./names/syllables.txt', 'utf-8').toString().t
 const words = fs.readFileSync('./names/words.txt', 'utf-8').toString().toUpperCase().split('\n');
 
 module.exports = function (passport) {
-  var router = require('express').Router();
+  const router = require('express').Router();
 
   router.get('/', (req, res) => {
     res.status(200).sendFile(process.cwd() + '/assets/index.html');

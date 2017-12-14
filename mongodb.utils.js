@@ -11,7 +11,7 @@ module.exports = {
 function connect() {
 
   const uri = 'mongodb://localhost:27017/RNG';
-  //const uri = 'mongodb://<dbuser>:<dbpassword>@ds229415.mlab.com:29415/rng';
+  //const uri = 'mongodb://tdmcg82:trevor24@ds229415.mlab.com:29415/rng';
   mongoose.connect(uri, { useMongoClient: true});
 
 };
