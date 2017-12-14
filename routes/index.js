@@ -43,7 +43,7 @@ module.exports = function (passport) {
       console.log(list);
       res.status(200).send(list);
     } else {
-      res.status(404).send('Login required');
+      res.status(500).send('Login required');
       console.log('Login required');
     }
   });
@@ -96,7 +96,8 @@ module.exports = function (passport) {
         let user = new User(rngServices.saveName(userFound, nameData));
         user.update( { _id: req.user._id}, {$set: {favorite: user.favorite}}).exec()
         user.save().then(() => {
-        res.status(200).send(user);
+          console.log(user.favorite);
+          res.status(200).send(user.favorite);
         })
       })
   });
@@ -107,20 +108,21 @@ module.exports = function (passport) {
     User.findOne( {_id: req.user._id}).exec()
       .then((userFound) => {
         let user = new User(rngServices.deleteName(userFound, deleteName));
-        console.log(user);
         user.markModified('favorite');
         user.update( { _id: req.user._id}, { $set: { favorite: user.favorite }}).exec()
           user.save().then((result) => {
-            console.log('result of save')
-            console.log(result);
-            res.status(200).send(user);
+            console.log('name deleted');
+            res.status(200).send('name deleted');
         })
       })
   });
 
   router.get('/favorites', isLoggedIn, (req, res) => {
-    console.log(req.user);
-    res.status(200).send(req.user);
+    User.findOne( {_id: req.user._id}).exec()
+      .then((userFound) => {
+        console.log(userFound);
+        res.status(200).send(userFound);
+      })
   });
 
   return router;

@@ -36,11 +36,7 @@ function saveName(user, nameData) {
   const newType = nameData.type;
   const newName = nameData.name;
 
-  console.log(user);
-
   user.favorite[newType].push(newName);
-
-  console.log(user);
 
   return user;
 };
