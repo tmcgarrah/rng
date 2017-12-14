@@ -16,8 +16,12 @@ const app = express();
 const jsonParser = bodyParser.json();
 const PORT = 3000;
 
-// let list = [];
-// let user;
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/authdemo', {useMongoClient: true });
+
+
+let list = [];
+let user;
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/authdemo', {useMongoClient: true });
@@ -34,6 +38,7 @@ app.use(passport.session());
 
 app.use('/assets', express.static(process.cwd() + '/assets'));
 app.use('/', routes);
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

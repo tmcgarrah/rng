@@ -32,6 +32,7 @@ function findUser(uname) {
   return User.find({username: uname}).exec();
 }
 
+
 function saveName(user, nameData) {
   const newType = nameData.type;
   const newName = nameData.name;
@@ -47,4 +48,11 @@ function deleteName(user, thisName) {
   _.remove(user.favorite[thisName.type], (n) => { return n === name});
   return user;
 
+function saveName(uname, name) {
+  return findUser(uname).then((user) => {
+    user[0].boynames.push(name);
+    console.log(user);
+
+    return user.save();
+  });
 };
