@@ -1,0 +1,348 @@
+{
+	"info": {
+		"name": "RNG",
+		"_postman_id": "23d00f31-9491-6e4d-c7a4-572cb0cbf01d",
+		"description": "Random Name Generator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/login",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "80eb85cacf960dede85b1ea28372eddb25eaf199",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"type": "any"
+						},
+						{
+							"key": "callBackUrl",
+							"type": "any"
+						},
+						{
+							"key": "authUrl",
+							"type": "any"
+						},
+						{
+							"key": "accessTokenUrl",
+							"type": "any"
+						},
+						{
+							"key": "clientId",
+							"type": "any"
+						},
+						{
+							"key": "clientSecret",
+							"type": "any"
+						},
+						{
+							"key": "clientAuth",
+							"type": "any"
+						},
+						{
+							"key": "grantType",
+							"type": "any"
+						},
+						{
+							"key": "scope",
+							"type": "any"
+						},
+						{
+							"key": "username",
+							"type": "any"
+						},
+						{
+							"key": "password",
+							"type": "any"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "redirectUri",
+							"type": "any"
+						},
+						{
+							"key": "refreshToken",
+							"type": "any"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/favorites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/favorites",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"favorites"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/save",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "80eb85cacf960dede85b1ea28372eddb25eaf199",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"type": "any"
+						},
+						{
+							"key": "callBackUrl",
+							"type": "any"
+						},
+						{
+							"key": "authUrl",
+							"type": "any"
+						},
+						{
+							"key": "accessTokenUrl",
+							"type": "any"
+						},
+						{
+							"key": "clientId",
+							"type": "any"
+						},
+						{
+							"key": "clientSecret",
+							"type": "any"
+						},
+						{
+							"key": "clientAuth",
+							"type": "any"
+						},
+						{
+							"key": "grantType",
+							"type": "any"
+						},
+						{
+							"key": "scope",
+							"type": "any"
+						},
+						{
+							"key": "username",
+							"type": "any"
+						},
+						{
+							"key": "password",
+							"type": "any"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "redirectUri",
+							"type": "any"
+						},
+						{
+							"key": "refreshToken",
+							"type": "any"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"wordnames\",\n\t\"name\": \"RAIN-BOY\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/save",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"save"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"boynames\",\n\t\"name\": \"Trent Lucas\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"delete"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/rsname/5/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/rsname/5/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"rsname",
+						"5",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/boy/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/boy/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"boy",
+						"5"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/girl/10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/girl/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"girl",
+						"10"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/rsname/5/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/rsname/5/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"rsname",
+						"5",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/rwords/5/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/rwords/5/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"rwords",
+						"5",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
