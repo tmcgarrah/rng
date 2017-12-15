@@ -1,0 +1,4 @@
+{"_id":{"$oid":"59f4ab6c54edfe060d77e14d"},"username":"demo","password":"demopassword","__v":0}
+{"_id":{"$oid":"59f4ab8554edfe060d77e14e"},"username":"demo2","password":"demopassword2","__v":0}
+{"_id":{"$oid":"59f4ad2608e82d06174b2f07"},"username":"test","password":"password","favorite":{"wordnames":[],"syllablenames":[],"girlnames":[],"boynames":[]},"__v":0}
+{"_id":{"$oid":"5a1cc6cddc9e9374e82d4632"},"github":{"id":"29718078","publicRepos":12,"username":"tmcgarrah"},"__v":11,"favorite":{"wordnames":["BIRD-MAN"],"syllablenames":["HO-HAND-RO"],"girlnames":["Amber Gentry"],"boynames":["Bryan Lucas","Samuel Jackson"]}}

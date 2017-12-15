@@ -19,13 +19,6 @@ const PORT = 3000;
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/authdemo', {useMongoClient: true });
 
-
-let list = [];
-let user;
-
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/authdemo', {useMongoClient: true });
-
 configPassport(passport);
 
 mongodb.createEventListeners();
