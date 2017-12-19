@@ -1,0 +1,208 @@
+{
+	"info": {
+		"name": "RNG-cloud",
+		"_postman_id": "33ca177d-0f5d-9ef5-33dc-6fa6240ee125",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://rng-v2.appspot.com/login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/login",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rng-v2.appspot.com/favorites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/favorites",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"favorites"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rng-v2.appspot.com/save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"girlnames\",\n\t\"name\": \"Ruth Gentry\"\n}"
+				},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/save",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"save"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rng-v2.appspot.com/delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"girlnames\",\n\t\"name\": \"Heather Smith\"\n}"
+				},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/delete",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"delete"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rng-v2.appspot.com/boy/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/boy/5",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"boy",
+						"5"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rng-v2.appspot.com/girl/3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/girl/3",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"girl",
+						"3"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rng-v2.appspot.com/rsname/5/3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/rsname/5/3",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"rsname",
+						"5",
+						"3"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rng-v2.appspot.com/rwords/10/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rng-v2.appspot.com/rwords/10/2",
+					"protocol": "https",
+					"host": [
+						"rng-v2",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"rwords",
+						"10",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

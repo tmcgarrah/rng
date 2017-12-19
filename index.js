@@ -14,10 +14,12 @@ const rngServices = require('./rng.services.js');
 
 const app = express();
 const jsonParser = bodyParser.json();
-const PORT = 3000;
+const PORT = 8080;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/authdemo', {useMongoClient: true });
+// mongoose.connect('mongodb://localhost/authdemo', {useMongoClient: true });
+mongoose.connect('mongodb://trevor:password@ds229415.mlab.com:29415/rng', {useMongoClient: true });
+
 
 configPassport(passport);
 
